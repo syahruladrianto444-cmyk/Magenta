@@ -135,4 +135,22 @@ Route::prefix('client')->name('client.')->middleware('client')->group(function (
     Route::get('/events/{event}', [ClientEventController::class, 'show'])->name('events.show');
 });
 
+// === TEMPORARY: Production Database Utility Routes ===
+// Remove these after successful migration!
+Route::get('/setup-migrate', function () {
+    try {
+        \Artisan::call('migrate', ['--force' => true]);
+        return '<pre>' . \Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return 'Migration error: ' . $e->getMessage();
+    }
+});
 
+Route::get('/setup-seed', function () {
+    try {
+        \Artisan::call('db:seed', ['--force' => true]);
+        return '<pre>' . \Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return 'Seed error: ' . $e->getMessage();
+    }
+});
