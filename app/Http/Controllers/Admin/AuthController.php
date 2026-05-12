@@ -47,7 +47,7 @@ class AuthController extends Controller
             // Only allow admin and client roles
             if (!in_array($user->role, ['admin', 'client'])) {
                 Auth::logout();
-                LoginActivity::log($user->id, $request->email, $request->ip(), $request->userAgent(), 'failed');
+                // LoginActivity::log($user->id, $request->email, $request->ip(), $request->userAgent(), 'failed');
                 return back()->withErrors([
                     'email' => 'Akun Anda tidak memiliki akses.',
                 ])->onlyInput('email');
@@ -56,12 +56,14 @@ class AuthController extends Controller
             // Client users: skip OTP, direct login
             if ($user->role === 'client') {
                 $request->session()->regenerate();
-                LoginActivity::log($user->id, $request->email, $request->ip(), $request->userAgent(), 'success');
+                // LoginActivity::log($user->id, $request->email, $request->ip(), $request->userAgent(), 'success');
                 return redirect()->intended(route('client.dashboard'))
                     ->with('success', 'Selamat datang, ' . $user->name . '!');
             }
 
+            // === BYPASS OTP TEMPORARILY ===
             // Admin users: check trusted device
+            /*
             if (TrustedDevice::isTrusted($user->id, $request->ip(), $request->userAgent())) {
                 // Trusted device → direct login
                 $request->session()->regenerate();
@@ -117,10 +119,16 @@ class AuthController extends Controller
 
             return redirect()->route('admin.otp.show')
                 ->with('success', $message);
+            */
+
+            // Temporary direct login for admin
+            $request->session()->regenerate();
+            return redirect()->intended(route('admin.dashboard'))
+                ->with('success', 'Selamat datang, ' . $user->name . '!');
         }
 
         // Failed login attempt
-        LoginActivity::log(null, $request->email, $request->ip(), $request->userAgent(), 'failed');
+        // LoginActivity::log(null, $request->email, $request->ip(), $request->userAgent(), 'failed');
 
         return back()->withErrors([
             'email' => 'Email atau password tidak valid.',
