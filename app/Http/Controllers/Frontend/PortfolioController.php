@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use App\Models\BusinessUnit;
 use App\Models\Service;
+use App\Models\PresentationDeck;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -32,7 +33,10 @@ class PortfolioController extends Controller
         $units = BusinessUnit::active()->ordered()->get();
         $services = Service::active()->ordered()->get();
 
-        return view('frontend.portfolio.index', compact('portfolios', 'units', 'services'));
+        // Presentation Decks
+        $decks = PresentationDeck::active()->ordered()->get();
+
+        return view('frontend.portfolio.index', compact('portfolios', 'units', 'services', 'decks'));
     }
 
     public function show(Portfolio $portfolio)

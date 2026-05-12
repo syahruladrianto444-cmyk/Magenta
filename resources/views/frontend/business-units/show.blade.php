@@ -153,20 +153,42 @@
     <section class="py-24 dark:bg-dark-950 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold dark:text-white text-dark-900 mb-4">Mengapa Memilih {{ $businessUnit->name }}?
+                <h2 class="text-4xl font-bold dark:text-white text-dark-900 mb-4">Why Choose {{ $businessUnit->name }}?
                 </h2>
-                <p class="text-lg dark:text-dark-400 text-dark-600 max-w-2xl mx-auto">Keunggulan yang membuat kami berbeda
-                    dari yang lain.</p>
+                <p class="text-lg dark:text-dark-400 text-dark-600 max-w-2xl mx-auto">What makes our approach different and impactful.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 @php
-                    $features = [
-                        ['icon' => 'shield-check', 'title' => 'Terpercaya', 'desc' => 'Dipercaya oleh berbagai klien korporat'],
-                        ['icon' => 'clock', 'title' => 'On Time', 'desc' => 'Komitmen penuh pada deadline'],
-                        ['icon' => 'headphones', 'title' => 'Support', 'desc' => 'Tim support yang responsif'],
-                        ['icon' => 'gem', 'title' => 'Premium', 'desc' => 'Kualitas hasil yang premium'],
-                    ];
+                    if ($businessUnit->slug === '87studio') {
+                        $features = [
+                            ['icon' => 'zap', 'title' => 'Energetic Execution', 'desc' => 'High-impact delivery that captivates audiences'],
+                            ['icon' => 'video', 'title' => 'Cinematic Vision', 'desc' => 'Premium visual storytelling and production'],
+                            ['icon' => 'target', 'title' => 'Brand Impact', 'desc' => 'Strategic engagement that elevates your brand'],
+                            ['icon' => 'layers', 'title' => 'End-to-End', 'desc' => 'Seamless management from concept to closing'],
+                        ];
+                    } elseif ($businessUnit->slug === 'bumi-training-center') {
+                        $features = [
+                            ['icon' => 'users', 'title' => 'Team Collaboration', 'desc' => 'Fostering unity and effective communication'],
+                            ['icon' => 'book-open', 'title' => 'Skill Development', 'desc' => 'Practical training for real-world application'],
+                            ['icon' => 'heart-handshake', 'title' => 'Warm Approach', 'desc' => 'Empathetic guidance that brings out the best'],
+                            ['icon' => 'trending-up', 'title' => 'Professional Growth', 'desc' => 'Empowering individuals to reach their potential'],
+                        ];
+                    } elseif (str_contains($businessUnit->slug, 'gajah')) {
+                        $features = [
+                            ['icon' => 'ruler', 'title' => 'Architectural Precision', 'desc' => 'Exact standards and meticulous attention to detail'],
+                            ['icon' => 'hammer', 'title' => 'Premium Build Quality', 'desc' => 'Using the best materials for enduring results'],
+                            ['icon' => 'box', 'title' => 'Structural Integrity', 'desc' => 'Safe, robust, and reliable constructions'],
+                            ['icon' => 'gem', 'title' => 'Timeless Design', 'desc' => 'Aesthetic mastery that stands the test of time'],
+                        ];
+                    } else {
+                        $features = [
+                            ['icon' => 'target', 'title' => 'Strategic Approach', 'desc' => 'Every project driven by clear goals and audience insight'],
+                            ['icon' => 'clock', 'title' => 'On-Time Delivery', 'desc' => 'Full commitment to agreed timelines'],
+                            ['icon' => 'sparkles', 'title' => 'Creative Excellence', 'desc' => 'Innovative concepts that leave lasting impressions'],
+                            ['icon' => 'layers', 'title' => 'End-to-End', 'desc' => 'Integrated handling from concept to completion'],
+                        ];
+                    }
                 @endphp
 
                 @foreach($features as $index => $feature)
@@ -201,7 +223,7 @@
                             <i data-lucide="images" class="w-4 h-4 mr-2"></i>
                             Portfolio
                         </div>
-                        <h2 class="text-4xl font-bold dark:text-white text-dark-900">Proyek Kami</h2>
+                        <h2 class="text-4xl font-bold dark:text-white text-dark-900">Case Studies</h2>
                     </div>
                     <a href="{{ route('portfolio.index', ['unit' => $businessUnit->slug]) }}"
                         class="hidden md:inline-flex items-center font-semibold transition-colors"
@@ -264,19 +286,25 @@
                 <i data-lucide="message-circle" class="w-10 h-10 text-white"></i>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
-                Tertarik Bekerja Sama dengan {{ $businessUnit->name }}?
+                Let's Create Something Impactful with {{ $businessUnit->name }}
             </h2>
             <p class="text-xl dark:text-dark-300 text-dark-600 mb-8 max-w-2xl mx-auto">
-                Hubungi kami untuk konsultasi gratis dan diskusi kebutuhan proyek Anda.
+                Tell us about your vision and let's build an experience that people remember.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="{{ route('contact') }}"
                     class="inline-flex items-center justify-center px-8 py-4 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
                     style="background: linear-gradient(135deg, {{ $businessUnit->color ?? '#DC2626' }}, {{ $businessUnit->color ?? '#DC2626' }}80)">
                     <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
-                    <span>Hubungi Kami</span>
+                    <span>Discuss Your Project</span>
                 </a>
-                <a href="https://wa.me/6287715568639" target="_blank"
+                @php
+                    $waNumber = '6281821878787'; // Default general
+                    if (Str::contains(strtolower($businessUnit->name), 'gajah')) {
+                        $waNumber = '6281236944802'; // Gajah Contractor number
+                    }
+                @endphp
+                <a href="https://wa.me/{{ $waNumber }}" target="_blank"
                     class="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                         <path

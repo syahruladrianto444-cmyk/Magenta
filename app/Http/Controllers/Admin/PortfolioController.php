@@ -33,9 +33,18 @@ class PortfolioController extends Controller
             'service_id' => 'nullable|exists:services,id',
             'client' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'overview' => 'nullable|string',
+            'goals' => 'nullable|string',
+            'magenta_role' => 'nullable|string',
+            'impact' => 'nullable|string',
+            'highlights' => 'nullable|string',
             'project_date' => 'nullable|date',
             'location' => 'nullable|string|max:255',
-            'featured_image' => 'nullable|image|max:2048',
+            'audience_count' => 'nullable|string|max:255',
+            'cta_text' => 'nullable|string|max:255',
+            'cta_link' => 'nullable|string|max:255',
+            'featured_image' => 'nullable|image|max:30000',
+            'hero_image' => 'nullable|image|max:30000',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
         ]);
@@ -46,6 +55,10 @@ class PortfolioController extends Controller
 
         if ($request->hasFile('featured_image')) {
             $validated['featured_image'] = $request->file('featured_image')->store('portfolios', 'public');
+        }
+
+        if ($request->hasFile('hero_image')) {
+            $validated['hero_image'] = $request->file('hero_image')->store('portfolios', 'public');
         }
 
         Portfolio::create($validated);
@@ -68,9 +81,18 @@ class PortfolioController extends Controller
             'service_id' => 'nullable|exists:services,id',
             'client' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'overview' => 'nullable|string',
+            'goals' => 'nullable|string',
+            'magenta_role' => 'nullable|string',
+            'impact' => 'nullable|string',
+            'highlights' => 'nullable|string',
             'project_date' => 'nullable|date',
             'location' => 'nullable|string|max:255',
-            'featured_image' => 'nullable|image|max:2048',
+            'audience_count' => 'nullable|string|max:255',
+            'cta_text' => 'nullable|string|max:255',
+            'cta_link' => 'nullable|string|max:255',
+            'featured_image' => 'nullable|image|max:30000',
+            'hero_image' => 'nullable|image|max:30000',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
         ]);
@@ -86,6 +108,13 @@ class PortfolioController extends Controller
             $validated['featured_image'] = $request->file('featured_image')->store('portfolios', 'public');
         }
 
+        if ($request->hasFile('hero_image')) {
+            if ($portfolio->hero_image) {
+                Storage::disk('public')->delete($portfolio->hero_image);
+            }
+            $validated['hero_image'] = $request->file('hero_image')->store('portfolios', 'public');
+        }
+
         $portfolio->update($validated);
 
         return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio berhasil diperbarui!');
@@ -95,6 +124,9 @@ class PortfolioController extends Controller
     {
         if ($portfolio->featured_image) {
             Storage::disk('public')->delete($portfolio->featured_image);
+        }
+        if ($portfolio->hero_image) {
+            Storage::disk('public')->delete($portfolio->hero_image);
         }
         $portfolio->delete();
 

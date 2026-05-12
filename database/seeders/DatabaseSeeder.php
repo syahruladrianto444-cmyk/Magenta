@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
             ['key' => 'company_name', 'value' => 'PT Magenta Jaya Makmur', 'group' => 'general'],
             ['key' => 'address', 'value' => 'Semarang, Jawa Tengah, Indonesia', 'group' => 'contact'],
             ['key' => 'phone', 'value' => '0818218787', 'group' => 'contact'],
-            ['key' => 'email', 'value' => 'info@magenta.co.id', 'group' => 'contact'],
+            ['key' => 'email', 'value' => 'magentajayamakmur@gmail.com', 'group' => 'contact'],
             ['key' => 'instagram', 'value' => 'magenta8787', 'group' => 'social'],
             ['key' => 'whatsapp', 'value' => '6281821878787', 'group' => 'social'],
         ];

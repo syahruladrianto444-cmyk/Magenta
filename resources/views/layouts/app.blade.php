@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'MAGENTA - Event Organizer & Creative Solutions')</title>
+    <title>@yield('title', 'Magenta87 Group — Strategic Events, Experiences & Creative Spaces')</title>
     <meta name="description"
-        content="@yield('meta_description', 'MAGENTA - PT Magenta Jaya Makmur adalah mitra strategis terdepan untuk solusi event, training, dan produksi di Indonesia.')">
+        content="@yield('meta_description', 'Magenta87 Group (PT Magenta Jaya Makmur) — Strategic partner for impactful events, brand activation, corporate experiences, and modern architecture across Indonesia.')">
 
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">

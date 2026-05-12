@@ -99,7 +99,7 @@
 
                 <a href="{{ route('contact') }}"
                     class="px-6 py-3 bg-gradient-primary text-white text-sm font-semibold rounded-full hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-animate">
-                    Contact Us
+                    Discuss Your Project
                 </a>
             </div>
 
@@ -142,8 +142,8 @@
             <a href="{{ route('partners') }}"
                 class="block px-4 py-3 rounded-xl dark:text-white text-dark-700 dark:hover:bg-dark-800 hover:bg-gray-50">Partners</a>
             <a href="{{ route('contact') }}"
-                class="block px-4 py-3 mt-4 bg-gradient-primary text-white text-center font-semibold rounded-xl">Contact
-                Us</a>
+                class="block px-4 py-3 mt-4 bg-gradient-primary text-white text-center font-semibold rounded-xl">Discuss
+                Your Project</a>
         </div>
     </div>
 </header>

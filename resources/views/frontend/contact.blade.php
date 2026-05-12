@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact - MAGENTA')
+@section('title', 'Let\'s Build Together - Magenta87 Group')
 
 @section('content')
     <section class="relative pt-32 pb-20 dark:bg-dark-950 bg-gray-50">
@@ -10,9 +10,9 @@
                     class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
                     Get In Touch
                 </div>
-                <h1 class="text-5xl md:text-6xl font-bold dark:text-white text-dark-900 mb-6">Hubungi <span
-                        class="text-gradient">Kami</span></h1>
-                <p class="text-xl dark:text-dark-300 text-dark-600">Kami siap membantu mewujudkan proyek Anda.</p>
+                <h1 class="text-5xl md:text-6xl font-bold dark:text-white text-dark-900 mb-6">Let's <span
+                        class="text-gradient">Build Together</span></h1>
+                <p class="text-xl dark:text-dark-300 text-dark-600">{{ $globalCtas['subheadline'] ?? 'Every great experience starts with a conversation. Tell us about your vision.' }}</p>
             </div>
         </div>
     </section>
@@ -84,7 +84,7 @@
                         </div>
                         <button type="submit"
                             class="w-full py-4 bg-gradient-primary text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-primary-500/30 transition-all">
-                            Kirim Pesan
+                            Start the Conversation
                         </button>
                     </form>
                 </div>
@@ -111,9 +111,8 @@
                             </div>
                             <div>
                                 <h4 class="dark:text-white text-dark-900 font-semibold mb-1">Telepon</h4>
-                                <a href="tel:+6281821878787"
-                                    class="dark:text-dark-400 text-dark-600 hover:text-primary-500 transition-colors">0818
-                                    218 787 87</a>
+                                <a href="tel:+{{ $globalCtas['whatsapp_general'] ?? '6281821878787' }}"
+                                    class="dark:text-dark-400 text-dark-600 hover:text-primary-500 transition-colors">{{ $globalCtas['whatsapp_general'] ?? '0818 218 787 87' }}</a>
                             </div>
                         </div>
                         <div
@@ -124,13 +123,13 @@
                             </div>
                             <div>
                                 <h4 class="dark:text-white text-dark-900 font-semibold mb-1">Email</h4>
-                                <a href="mailto:info@magenta.co.id"
-                                    class="dark:text-dark-400 text-dark-600 hover:text-primary-500 transition-colors">info@magenta.co.id</a>
+                                <a href="mailto:magentajayamakmur@gmail.com"
+                                    class="dark:text-dark-400 text-dark-600 hover:text-primary-500 transition-colors">magentajayamakmur@gmail.com</a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="https://wa.me/6281821878787" target="_blank"
+                    <a href="https://wa.me/{{ $globalCtas['whatsapp_general'] ?? '6281821878787' }}" target="_blank"
                         class="flex items-center justify-center space-x-3 w-full py-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-colors">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path

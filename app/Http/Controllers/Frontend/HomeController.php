@@ -19,13 +19,20 @@ class HomeController extends Controller
         $portfolios = Portfolio::active()->featured()->with('businessUnit')->latest()->take(6)->get();
         $news = News::active()->published()->latest()->take(3)->get();
         $clients = Partner::active()->ofType('client')->ordered()->take(12)->get();
+        
+        $stats = Setting::getByGroup('stats');
+        $whyChooseUs = json_decode(Setting::get('why_choose_us', '[]'), true);
+        $ctas = Setting::getByGroup('cta');
 
         return view('frontend.home', compact(
             'services',
             'businessUnits',
             'portfolios',
             'news',
-            'clients'
+            'clients',
+            'stats',
+            'whyChooseUs',
+            'ctas'
         ));
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'MAGENTA - Corporate Event & Creative Solutions')
-@section('meta_description', 'MAGENTA adalah mitra strategis terdepan untuk solusi event, training, media production, dan konstruksi di Indonesia.')
+@section('title', 'Magenta87 Group — Strategic Events, Experiences & Creative Spaces')
+@section('meta_description', 'Magenta87 Group (PT Magenta Jaya Makmur) — Strategic partner for impactful events, brand activation, corporate experiences, and modern architecture across Indonesia.')
 
 @section('content')
 {{-- Toast Notification Container (Alpine.js) --}}
@@ -31,7 +31,7 @@
 <section class="relative min-h-screen flex items-center overflow-hidden">
     {{-- Background Image --}}
     <div class="absolute inset-0">
-        <img src="{{ asset('images/hero-event.png') }}" alt="MAGENTA Corporate Event" class="w-full h-full object-cover">
+        <img src="{{ asset('images/hero-event.png') }}" alt="Magenta87 Group Strategic Events" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-r dark:from-dark-950 dark:via-dark-950/90 dark:to-dark-950/60 from-white via-white/90 to-white/60"></div>
     </div>
     
@@ -51,44 +51,47 @@
                 </div>
                 
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold dark:text-white text-dark-900 leading-tight mb-6">
-                    <span class="text-gradient">Magenta</span>
-                    Is Your Event Management
+                    Building <span class="text-gradient">Experiences</span>
+                    That Create Impact
                 </h1>
                 
+                <p class="text-lg dark:text-dark-400 text-dark-500 font-medium mb-3">
+                    Event Management • Brand Activation • Team Building • Architecture & Construction
+                </p>
                 <p class="text-xl dark:text-dark-300 text-dark-600 leading-relaxed mb-8 max-w-xl">
-                    Partner terpercaya untuk solusi event, corporate training, dan produksi korporat berkelas internasional di Indonesia.
+                    Strategic partner ecosystem for impactful events, brand activation, corporate experiences, and modern architecture across Indonesia.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white font-semibold rounded-full hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-animate shine-effect hover-wiggle">
-                        <span>Konsultasi Gratis</span>
+                    <a href="{{ $ctas['button_link'] ?? route('contact') }}" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white font-semibold rounded-full hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-animate shine-effect hover-wiggle">
+                        <span>{{ $ctas['button_text'] ?? 'Discuss Your Project' }}</span>
                         <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
                     </a>
                     <a href="{{ route('portfolio.index') }}" class="inline-flex items-center justify-center px-8 py-4 border dark:border-dark-600 border-gray-300 dark:text-white text-dark-700 font-semibold rounded-full dark:hover:bg-dark-800 hover:bg-gray-100 transition-all duration-300">
                         <i data-lucide="play-circle" class="w-5 h-5 mr-2"></i>
-                        <span>Lihat Portfolio</span>
+                        <span>Explore Our Works</span>
                     </a>
                 </div>
                 
-                {{-- Stats with Counter Animation --}}
+                {{-- Stats --}}
                 <div class="grid grid-cols-3 gap-8 mt-12 pt-8 border-t dark:border-dark-700 border-gray-200">
                     <div class="text-center sm:text-left" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-3xl font-bold dark:text-white text-dark-900" x-data="{ count: 0 }" x-init="setTimeout(() => { let interval = setInterval(() => { if(count < 10) count++; else clearInterval(interval); }, 100); }, 500)">
-                            <span x-text="count"></span>+
+                        <div class="text-3xl font-bold dark:text-white text-dark-900">
+                            {{ $stats['events_managed'] ?? '50+' }}
                         </div>
-                        <div class="dark:text-dark-400 text-dark-500 text-sm">Tahun Pengalaman</div>
+                        <div class="dark:text-dark-400 text-dark-500 text-sm">Events Managed</div>
                     </div>
                     <div class="text-center sm:text-left" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-3xl font-bold dark:text-white text-dark-900" x-data="{ count: 0 }" x-init="setTimeout(() => { let interval = setInterval(() => { if(count < 500) count += 10; else clearInterval(interval); }, 30); }, 700)">
-                            <span x-text="count"></span>+
+                        <div class="text-3xl font-bold dark:text-white text-dark-900">
+                            {{ $stats['cities_reached'] ?? '20+' }}
                         </div>
-                        <div class="dark:text-dark-400 text-dark-500 text-sm">Event Sukses</div>
+                        <div class="dark:text-dark-400 text-dark-500 text-sm">Cities Reached</div>
                     </div>
                     <div class="text-center sm:text-left" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-3xl font-bold dark:text-white text-dark-900" x-data="{ count: 0 }" x-init="setTimeout(() => { let interval = setInterval(() => { if(count < 100) count += 2; else clearInterval(interval); }, 50); }, 900)">
-                            <span x-text="count"></span>+
+                        <div class="text-3xl font-bold dark:text-white text-dark-900">
+                            {{ $stats['audience_engagement'] ?? '100K+' }}
                         </div>
-                        <div class="dark:text-dark-400 text-dark-500 text-sm">Klien Korporat</div>
+                        <div class="dark:text-dark-400 text-dark-500 text-sm">Audience Engagement</div>
                     </div>
                 </div>
             </div>
@@ -108,8 +111,8 @@
                             <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
                         </div>
                         <div>
-                            <div class="dark:text-white text-dark-900 font-semibold text-sm">Trusted Partner</div>
-                            <div class="dark:text-dark-400 text-dark-500 text-xs">Korporasi & Pemerintah</div>
+                            <div class="dark:text-white text-dark-900 font-semibold text-sm">Strategic Partner</div>
+                            <div class="dark:text-dark-400 text-dark-500 text-xs">Government & Brands</div>
                         </div>
                     </div>
                 </div>
@@ -121,8 +124,8 @@
                             <i data-lucide="trophy" class="w-5 h-5 text-primary-500"></i>
                         </div>
                         <div>
-                            <div class="dark:text-white text-dark-900 font-semibold text-sm">500+ Events</div>
-                            <div class="dark:text-dark-400 text-dark-500 text-xs">Sukses Terselenggara</div>
+                            <div class="dark:text-white text-dark-900 font-semibold text-sm">100+ Events</div>
+                            <div class="dark:text-dark-400 text-dark-500 text-xs">Impactful Experiences</div>
                         </div>
                     </div>
                 </div>
@@ -160,7 +163,7 @@
                 <i data-lucide="award" class="w-4 h-4 mr-2"></i>
                 Trusted By
             </div>
-            <h3 class="text-2xl font-bold dark:text-white text-dark-900">Dipercaya oleh Berbagai Perusahaan</h3>
+            <h3 class="text-2xl font-bold dark:text-white text-dark-900">Trusted by Leading Organizations</h3>
         </div>
         <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12" data-aos="fade-up" data-aos-delay="100">
             @foreach($clients as $client)
@@ -175,13 +178,158 @@
         </div>
         <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="200">
             <a href="{{ route('partners') }}" class="inline-flex items-center text-primary-500 font-medium hover:text-primary-600 transition-colors hover-wiggle">
-                <span>Lihat Semua Partner</span>
+                <span>View All Partners</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
             </a>
         </div>
     </div>
 </section>
 @endif
+
+{{-- WHAT WE SOLVE Section --}}
+<section class="py-24 dark:bg-dark-950 bg-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
+                <i data-lucide="zap" class="w-4 h-4 mr-2"></i>
+                What We Solve
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
+                Challenges We <span class="text-gradient">Transform</span>
+            </h2>
+            <p class="text-lg dark:text-dark-300 text-dark-600 max-w-2xl mx-auto">
+                We turn common industry challenges into strategic opportunities for impact and engagement.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            {{-- Challenges Column --}}
+            <div class="dark:bg-dark-800/50 bg-gray-50 rounded-3xl p-8 dark:border-dark-700 border-gray-200 border" data-aos="fade-right">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mr-4">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-red-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold dark:text-white text-dark-900">Market Challenges</h3>
+                </div>
+                <div class="space-y-4">
+                    @php
+                        $challenges = [
+                            'Events that feel crowded but lack real impact',
+                            'Low audience interaction and engagement',
+                            'Complicated stakeholder coordination',
+                            'Weak brand experience and activation',
+                            'Unorganized event execution and logistics',
+                            'Spaces without identity or functionality',
+                        ];
+                    @endphp
+                    @foreach($challenges as $index => $challenge)
+                    <div class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="{{ $index * 50 }}">
+                        <i data-lucide="x-circle" class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"></i>
+                        <span class="dark:text-dark-300 text-dark-600">{{ $challenge }}</span>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- Solutions Column --}}
+            <div class="dark:bg-dark-800/50 bg-gray-50 rounded-3xl p-8 border-2 border-primary-500/30" data-aos="fade-left">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center mr-4">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-primary-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold dark:text-white text-dark-900">Magenta87 Solutions</h3>
+                </div>
+                <div class="space-y-4">
+                    @php
+                        $solutions = [
+                            'Audience-driven event strategy for maximum impact',
+                            'Integrated production and activation system',
+                            'Strategic activation and engagement planning',
+                            'Experience-focused execution and brand storytelling',
+                            'Collaborative stakeholder handling and coordination',
+                            'Functional & aesthetic architecture solutions',
+                        ];
+                    @endphp
+                    @foreach($solutions as $index => $solution)
+                    <div class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="{{ $index * 50 }}">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                        <span class="dark:text-dark-300 text-dark-600">{{ $solution }}</span>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- EXPERIENCE IN NUMBERS Section --}}
+<section class="py-24 dark:bg-dark-900 bg-gray-50 relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-primary-500/5 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
+                <i data-lucide="bar-chart-3" class="w-4 h-4 mr-2"></i>
+                Experience in Numbers
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
+                Impact That <span class="text-gradient">Speaks</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            @php
+                $stats = [
+                    ['value' => '100+', 'label' => 'Events Managed', 'icon' => 'calendar'],
+                    ['value' => '20+', 'label' => 'Cities Reached', 'icon' => 'map-pin'],
+                    ['value' => '50K+', 'label' => 'Audience Engagement', 'icon' => 'users'],
+                    ['value' => '4', 'label' => 'Business Units', 'icon' => 'building-2'],
+                    ['value' => 'Multi', 'label' => 'Sector Clients', 'icon' => 'briefcase']
+                ];
+            @endphp
+            @foreach($stats as $index => $stat)
+            <div class="group text-center dark:bg-dark-800/50 bg-white p-6 rounded-2xl dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
+                <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="{{ $stat['icon'] }}" class="w-6 h-6 text-primary-500"></i>
+                </div>
+                <div class="text-3xl font-bold dark:text-white text-dark-900 mb-1">{{ $stat['value'] }}</div>
+                <div class="dark:text-dark-400 text-dark-500 text-sm">{{ $stat['label'] }}</div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- WHY MAGENTA87 GROUP Section --}}
+<section class="py-24 dark:bg-dark-950 bg-white relative overflow-hidden">
+    <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl animate-pulse"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
+                <i data-lucide="heart" class="w-4 h-4 mr-2"></i>
+                Why Magenta87
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
+                Why <span class="text-gradient">Choose Us</span>
+            </h2>
+            <p class="text-xl dark:text-dark-300 text-dark-600 max-w-3xl mx-auto italic">
+                "We believe every event, experience, and space should create connection, impact, and lasting impressions."
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            @foreach($whyChooseUs as $index => $point)
+            <div class="group dark:bg-dark-800/50 bg-gray-50 rounded-2xl p-6 dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
+                <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                    <i data-lucide="{{ $point['icon'] ?? 'star' }}" class="w-7 h-7 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold dark:text-white text-dark-900 mb-2 group-hover:text-primary-500 transition-colors">{{ $point['title'] }}</h3>
+                <p class="dark:text-dark-400 text-dark-600 text-sm leading-relaxed">{{ $point['desc'] }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
 {{-- About Preview Section --}}
 <section class="py-24 dark:bg-dark-950 bg-white">
@@ -192,18 +340,18 @@
                     Tentang Kami
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
-                    Lebih Dari Satu Dekade <span class="text-gradient">Membangun Kepercayaan</span>
+                    More Than a Decade <span class="text-gradient">Building Connections</span>
                 </h2>
                 <p class="text-lg dark:text-dark-300 text-dark-600 leading-relaxed mb-8">
-                    PT Magenta Jaya Makmur hadir sebagai mitra strategis yang menyediakan solusi terintegrasi untuk kebutuhan event, training, media production, dan konstruksi. Dengan komitmen pada kualitas dan profesionalisme, kami telah dipercaya oleh berbagai korporasi dan instansi pemerintah di Indonesia.
+                    Magenta87 Group is not just a service provider — we are a strategic partner ecosystem that creates experiences, engagement, public impact, and functional spaces. From large-scale public events to intimate corporate gatherings and modern architectural projects, we deliver end-to-end solutions that leave lasting impressions.
                 </p>
                 <div class="grid grid-cols-2 gap-6 mb-8">
                     @php
                         $values = [
-                            ['icon' => 'award', 'title' => 'Excellence', 'desc' => 'Kualitas Terbaik'],
-                            ['icon' => 'lightbulb', 'title' => 'Innovation', 'desc' => 'Solusi Kreatif'],
-                            ['icon' => 'shield-check', 'title' => 'Integrity', 'desc' => 'Kepercayaan'],
-                            ['icon' => 'users', 'title' => 'Collaboration', 'desc' => 'Kemitraan'],
+                            ['icon' => 'target', 'title' => 'Strategic', 'desc' => 'Impact-Driven'],
+                            ['icon' => 'sparkles', 'title' => 'Creative', 'desc' => 'Experience-Focused'],
+                            ['icon' => 'shield-check', 'title' => 'Trusted', 'desc' => 'Multi-Sector'],
+                            ['icon' => 'users', 'title' => 'Integrated', 'desc' => 'End-to-End'],
                         ];
                     @endphp
                     @foreach($values as $index => $value)
@@ -219,13 +367,13 @@
                     @endforeach
                 </div>
                 <a href="{{ route('about') }}" class="inline-flex items-center text-primary-500 font-semibold hover:text-primary-400 transition-colors group">
-                    <span>Selengkapnya Tentang Kami</span>
+                    <span>Discover Our Story</span>
                     <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform"></i>
                 </a>
             </div>
             <div class="relative" data-aos="fade-left">
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="{{ asset('images/team.png') }}" alt="Team MAGENTA" class="w-full h-auto">
+                    <img src="{{ asset('images/INDUSTOPOLIS-31.jpg') }}" alt="Team MAGENTA" class="w-full h-[620px] object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t dark:from-dark-950/80 from-white/80 via-transparent to-transparent"></div>
                 </div>
                 {{-- Stats Card with Glow --}}
@@ -247,14 +395,19 @@
                 Layanan Kami
             </div>
             <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
-                Solusi <span class="text-gradient">Terintegrasi</span> untuk Kebutuhan Anda
+                Experience-Driven <span class="text-gradient">Solutions</span>
             </h2>
             <p class="text-lg dark:text-dark-300 text-dark-600 max-w-2xl mx-auto">
-                Kami menyediakan berbagai layanan profesional untuk memenuhi kebutuhan korporasi Anda.
+                Comprehensive services designed to create impact, engagement, and lasting impressions.
             </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        @php
+            $lgCols = $services->count() === 1 ? 'lg:grid-cols-1 max-w-lg mx-auto' : 
+                      ($services->count() === 2 ? 'lg:grid-cols-2 max-w-4xl mx-auto' : 
+                      ($services->count() === 3 ? 'lg:grid-cols-3 max-w-6xl mx-auto' : 'lg:grid-cols-4'));
+        @endphp
+        <div class="grid md:grid-cols-2 {{ $lgCols }} gap-8">
             @foreach($services as $index => $service)
             <div class="group dark:bg-dark-800 bg-white rounded-2xl p-8 dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                 <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
@@ -272,14 +425,94 @@
         
         <div class="text-center mt-12" data-aos="fade-up">
             <a href="{{ route('services.index') }}" class="inline-flex items-center px-8 py-4 border-2 border-primary-500 text-primary-500 font-semibold rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300 group">
-                <span>Lihat Semua Layanan</span>
+                <span>Explore All Services</span>
                 <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
             </a>
         </div>
     </div>
 </section>
 
-{{-- Business Units Section --}}
+{{-- OUR CREATIVE ECOSYSTEM Section --}}
+<section class="py-32 dark:bg-dark-950 bg-white relative overflow-hidden">
+    {{-- Background Decorative Elements --}}
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {{-- Section Header --}}
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
+                Integrated Experience Ecosystem
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
+                Event • Experience • <span class="text-gradient">Design Build</span>
+            </h2>
+            <p class="text-lg dark:text-dark-300 text-dark-600 max-w-3xl mx-auto font-light leading-relaxed">
+                “Magenta87 Group menghadirkan ekosistem layanan terintegrasi yang menghubungkan event, experience, engagement, creative production, hingga kebutuhan desain dan konstruksi dalam satu sistem kreatif yang saling terhubung.”
+            </p>
+        </div>
+
+        {{-- Business Unit Grid --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            @php
+                $ecosystem = [
+                    [
+                        'title' => 'M87',
+                        'desc' => 'Public Event & Brand Activation Specialist',
+                        'services' => ['Event Management', 'Corporate Event', 'Brand Activation', 'Rental Stage Lighting Audio', 'Production Support'],
+                        'delay' => 100
+                    ],
+                    [
+                        'title' => 'Bumi Training Center',
+                        'desc' => 'Team Building & Corporate Experience',
+                        'services' => ['Outbound Training', 'Team Building', 'Leadership Activity', 'Corporate Gathering'],
+                        'delay' => 200
+                    ],
+                    [
+                        'title' => '87 Studio',
+                        'desc' => 'Creative Production & Media Experience',
+                        'services' => ['Creative Design', 'Photography & Videography', 'Advertising', 'Media Digital'],
+                        'delay' => 300
+                    ],
+                    [
+                        'title' => 'Gajah Art Contractor',
+                        'desc' => 'Architecture & Design Build Partner',
+                        'services' => ['Architecture Design', 'Interior Design', 'Construction Service', 'Design & Build'],
+                        'delay' => 400
+                    ]
+                ];
+            @endphp
+
+            @foreach($ecosystem as $unit)
+            <div class="group relative p-8 rounded-3xl dark:bg-dark-800 bg-white border border-gray-200 dark:border-dark-700 hover:border-primary-500/50 transition-all duration-500 overflow-hidden flex flex-col h-full shadow-sm hover:shadow-xl" data-aos="fade-up" data-aos-delay="{{ $unit['delay'] }}">
+                <div class="relative z-10 flex flex-col h-full">
+                    <h3 class="text-2xl font-bold text-primary-500 mb-2 tracking-tighter">{{ $unit['title'] }}</h3>
+                    <p class="text-sm font-semibold dark:text-white text-dark-900 mb-6 leading-tight">{{ $unit['desc'] }}</p>
+                    
+                    <div class="mt-auto pt-6 border-t dark:border-dark-700 border-gray-300">
+                        <ul class="space-y-2">
+                            @foreach($unit['services'] as $service)
+                            <li class="text-[12px] tracking-wider dark:text-dark-400 text-dark-500 group-hover:text-primary-500 transition-colors duration-300">
+                                {{ $service }}
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        {{-- Supporting Service Line --}}
+        <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+            <p class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] dark:text-dark-400 text-dark-500 font-medium leading-loose max-w-5xl mx-auto">
+                Event Management | Corporate Event | Brand Activation | Outbound Training | Rental Stage Lighting Audio | Production Support | Creative Design | Photography & Videography | Advertising | Media Digital | Architecture & Construction
+            </p>
+        </div>
+    </div>
+</section>
+
+{{-- Detailed Business Units Grid (Optional or Replaced) --}}
+@if(false) {{-- Temporarily hiding the old grid to focus on the new ecosystem overview --}}
 <section class="py-24 dark:bg-dark-950 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -287,10 +520,10 @@
                 Business Units
             </div>
             <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
-                Ekosistem Bisnis <span class="text-gradient">Terintegrasi</span>
+                Our Creative <span class="text-gradient">Ecosystem</span>
             </h2>
             <p class="text-lg dark:text-dark-300 text-dark-600 max-w-2xl mx-auto">
-                Empat unit bisnis yang saling melengkapi untuk memberikan solusi end-to-end.
+                Four specialized units working together to create experiences, engagement, and spaces.
             </p>
         </div>
         
@@ -322,7 +555,7 @@
                     </div>
                     
                     <a href="{{ route('units.show', $unit) }}" class="inline-flex items-center font-medium transition-colors" style="color: {{ $unit->color ?? '#DC2626' }}">
-                        <span>Explore Unit</span>
+                        <span>Discover More</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -331,6 +564,7 @@
         </div>
     </div>
 </section>
+@endif
 
 {{-- Training Section Image --}}
 <section class="py-24 dark:bg-dark-900 bg-gray-50 relative overflow-hidden">
@@ -343,17 +577,17 @@
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div data-aos="fade-right">
                 <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
-                    Corporate Training
+                    Creative Business Network
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-6">
-                    Tingkatkan Kompetensi <span class="text-gradient">Tim Anda</span>
+                    Beyond Events, <span class="text-gradient">Building Experiences</span>
                 </h2>
                 <p class="text-lg dark:text-dark-300 text-dark-600 leading-relaxed mb-8">
-                    Program pelatihan profesional untuk pengembangan SDM korporasi. Team building, leadership training, outbound, dan workshop yang dirancang khusus sesuai kebutuhan perusahaan Anda.
+                    Berawal dari event management, Magenta87 Group berkembang menjadi ekosistem kreatif yang menghadirkan solusi experience, activation, team engagement, creative production, hingga architecture & construction untuk berbagai kebutuhan brand, corporate, maupun public sector.
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="{{ route('services.index') }}" class="inline-flex items-center px-8 py-4 bg-gradient-primary text-white font-semibold rounded-full hover:shadow-lg hover:shadow-primary-500/30 transition-all btn-animate shine-effect">
-                        <span>Lihat Program</span>
+                        <span>Explore Team Experiences</span>
                         <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
                     </a>
                 </div>
@@ -363,10 +597,10 @@
                     <div class="grid grid-cols-2 gap-4">
                         @php
                             $trainingPrograms = [
-                                ['icon' => 'users', 'title' => 'Team Building'],
-                                ['icon' => 'target', 'title' => 'Leadership'],
-                                ['icon' => 'mountain', 'title' => 'Outbound'],
-                                ['icon' => 'presentation', 'title' => 'Workshop'],
+                                ['icon' => 'users', 'title' => 'Public Experience'],
+                                ['icon' => 'target', 'title' => 'Corporate Engangement'],
+                                ['icon' => 'brain', 'title' => 'Creative Production'],
+                                ['icon' => 'home', 'title' => 'Architecture & Construction'],
                             ];
                         @endphp
                         @foreach($trainingPrograms as $index => $program)
@@ -384,6 +618,68 @@
     </div>
 </section>
 
+{{-- Klien Kami Section --}}
+<section class="py-24 dark:bg-dark-950 bg-white relative overflow-hidden">
+    {{-- Decorative Background --}}
+    <div class="absolute top-0 right-0 w-80 h-80 bg-primary-500/5 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl animate-pulse"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {{-- Section Header --}}
+        <div class="text-center mb-16" data-aos="fade-up">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6 border border-primary-500/20">
+                <i data-lucide="handshake" class="w-4 h-4 mr-2"></i>
+                Our Clients
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold dark:text-white text-dark-900 mb-4">
+                Klien <span class="text-gradient">Kami</span>
+            </h2>
+            <p class="text-lg dark:text-dark-300 text-dark-600 max-w-2xl mx-auto">
+                Leading organizations and government institutions trust us to deliver impactful projects.
+            </p>
+        </div>
+
+        {{-- Client Image with Premium Frame --}}
+        <div class="max-w-4xl mx-auto relative" data-aos="zoom-in" data-aos-duration="800">
+            {{-- Outer Glow --}}
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary-500/20 via-primary-600/30 to-primary-500/20 rounded-2xl blur-sm"></div>
+            
+            {{-- Main Container --}}
+            <div class="relative dark:bg-dark-800/50 bg-white rounded-2xl p-4 md:p-6 dark:border-dark-700/50 border-gray-200 border shadow-2xl backdrop-blur-sm">
+                {{-- Corner Accents --}}
+                <div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary-500/30 rounded-tl-2xl"></div>
+                <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary-500/30 rounded-tr-2xl"></div>
+                <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary-500/30 rounded-bl-2xl"></div>
+                <div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary-500/30 rounded-br-2xl"></div>
+
+                {{-- Image --}}
+                <div class="rounded-xl overflow-hidden">
+                    <img src="{{ asset('images/magentaklien.png') }}" 
+                         alt="Klien PT Magenta Jaya Makmur" 
+                         class="w-full h-auto object-contain transition-transform duration-700 hover:scale-[1.02]">
+                </div>
+            </div>
+
+            {{-- Floating Badge --}}
+            <div class="absolute -bottom-6 -right-4 z-20" data-aos="fade-up" data-aos-delay="300">
+                <div class="inline-flex items-center px-7 py-3.5 bg-gradient-primary text-white rounded-full shadow-xl shadow-primary-500/30 animate-float">
+                    <i data-lucide="building-2" class="w-5 h-5 mr-2"></i>
+                    <span class="font-bold text-base">100+ Klien Korporat Terpercaya</span>
+                    <i data-lucide="verified" class="w-5 h-5 ml-2"></i>
+                </div>
+            </div>
+        </div>
+
+        {{-- View Partners Link --}}
+        <div class="text-center mt-14" data-aos="fade-up" data-aos-delay="400">
+            <a href="{{ route('partners') }}" class="inline-flex items-center text-primary-500 font-semibold hover:text-primary-400 transition-colors group">
+                <span>View All Our Partners</span>
+                <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
 {{-- CTA Section --}}
 <section class="py-24 bg-gradient-primary relative overflow-hidden">
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float"></div>
@@ -391,17 +687,17 @@
     
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-            Siap Memulai <span class="text-white/90">Proyek</span> Anda?
+            {!! $ctas['headline'] ?? "Let's Build Something <span class=\"text-white/90\">Meaningful</span> Together" !!}
         </h2>
         <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Konsultasikan kebutuhan Anda dengan tim profesional kami. Kami siap membantu mewujudkan visi Anda.
+            {{ $ctas['subheadline'] ?? "Every great experience starts with a conversation. Tell us about your vision and let's create impact together." }}
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover-wiggle">
-                <span>Hubungi Kami Sekarang</span>
+            <a href="{{ $ctas['button_link'] ?? route('contact') }}" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover-wiggle">
+                <span>{{ $ctas['button_text'] ?? 'Discuss Your Next Project' }}</span>
                 <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
             </a>
-            <a href="https://wa.me/6287715568639" target="_blank" class="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300">
+            <a href="https://wa.me/{{ $ctas['whatsapp_general'] ?? '6281821878787' }}" target="_blank" class="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
                 <span>WhatsApp</span>
             </a>
@@ -422,8 +718,8 @@
                     this.addToast({
                         type: 'info',
                         icon: 'sparkles',
-                        title: 'Selamat Datang! 👋',
-                        message: 'Jelajahi layanan kami untuk event terbaik'
+                        title: 'Welcome! 👋',
+                        message: 'Discover impactful event & experience solutions'
                     });
                 }, 3000);
                 
@@ -432,8 +728,8 @@
                     this.addToast({
                         type: 'success',
                         icon: 'gift',
-                        title: 'Promo Spesial! 🎉',
-                        message: 'Konsultasi gratis untuk proyek pertama Anda'
+                        title: 'Let\'s Connect! 🌟',
+                        message: 'Build something meaningful together with us'
                     });
                 }, 8000);
             },

@@ -10,25 +10,24 @@
                         class="h-12 w-auto">
                 </a>
                 <p class="text-gray-400 mb-6 leading-relaxed">
-                    PT Magenta Jaya Makmur - Mitra strategis terdepan untuk solusi event, training, dan produksi
-                    korporat di Indonesia.
+                    PT Magenta Jaya Makmur — A strategic partner ecosystem creating impactful events, immersive experiences, corporate engagement, and modern architectural spaces across Indonesia.
                 </p>
                 <div class="flex space-x-3">
                     <a href="https://instagram.com/magenta8787" target="_blank"
                         class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
                         </svg>
                     </a>
-                    <a href="https://wa.me/6281821878787" target="_blank"
+                    <a href="https://wa.me/{{ $globalCtas['whatsapp_general'] ?? '6281821878787' }}" target="_blank"
                         class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                         </svg>
                     </a>
-                    <a href="mailto:info@magenta.co.id"
+                    <a href="mailto:magentajayamakmur@gmail.com"
                         class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-all">
                         <i data-lucide="mail" class="w-5 h-5"></i>
                     </a>
@@ -80,7 +79,13 @@
                 <ul class="space-y-4">
                     <li class="flex items-start">
                         <i data-lucide="map-pin" class="w-5 h-5 text-primary-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                        <span class="text-gray-400">Semarang, Jawa Tengah, Indonesia</span>
+                        <a 
+                            href="https://maps.app.goo.gl/6ZCsxAZaLjXaPsZS8" 
+                            target="_blank"
+                            class="text-gray-400 hover:text-white"
+                            >
+                            Jl. Ciliwung I No.12, Sidosari, Sidomulyo, Kec. Ungaran Tim., Kabupaten Semarang, Jawa Tengah 50514
+                        </a>
                     </li>
                     <li class="flex items-center">
                         <i data-lucide="phone" class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0"></i>
@@ -88,8 +93,8 @@
                     </li>
                     <li class="flex items-center">
                         <i data-lucide="mail" class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0"></i>
-                        <a href="mailto:info@magenta.co.id"
-                            class="text-gray-400 hover:text-white">info@magenta.co.id</a>
+                        <a href="mailto:magentajayamakmur@gmail.com"
+                            class="text-gray-400 hover:text-white">magentajayamakmur@gmail.com</a>
                     </li>
                 </ul>
             </div>

@@ -141,15 +141,7 @@
             </a>
         </div>
 
-        {{-- Default Credentials Info --}}
-        <div
-            class="mt-8 p-4 bg-white/50 dark:bg-dark-800/50 rounded-xl border border-gray-200 dark:border-dark-700 transition-colors">
-            <p class="text-gray-500 dark:text-gray-400 text-xs text-center transition-colors">
-                <strong class="text-primary-500">Demo Login:</strong><br>
-                Email: admin@magenta.co.id<br>
-                Password: password123
-            </p>
-        </div>
+
     </div>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

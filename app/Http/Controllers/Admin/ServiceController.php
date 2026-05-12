@@ -27,12 +27,27 @@ class ServiceController extends Controller
             'icon' => 'nullable|string|max:50',
             'excerpt' => 'nullable|string',
             'description' => 'nullable|string',
+            'offered_services' => 'nullable|array',
+            'scope_details' => 'nullable|array',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
         $validated['is_active'] = $request->boolean('is_active', true);
+
+        // Filter out empty rows from arrays
+        if (!empty($validated['offered_services'])) {
+            $validated['offered_services'] = array_values(array_filter($validated['offered_services'], function($item) {
+                return !empty($item['title']);
+            }));
+        }
+        
+        if (!empty($validated['scope_details'])) {
+            $validated['scope_details'] = array_values(array_filter($validated['scope_details'], function($item) {
+                return !empty($item['title']);
+            }));
+        }
 
         Service::create($validated);
 
@@ -51,12 +66,31 @@ class ServiceController extends Controller
             'icon' => 'nullable|string|max:50',
             'excerpt' => 'nullable|string',
             'description' => 'nullable|string',
+            'offered_services' => 'nullable|array',
+            'scope_details' => 'nullable|array',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
         $validated['is_active'] = $request->boolean('is_active');
+
+        // Filter out empty rows from arrays
+        if (!empty($validated['offered_services'])) {
+            $validated['offered_services'] = array_values(array_filter($validated['offered_services'], function($item) {
+                return !empty($item['title']);
+            }));
+        } else {
+            $validated['offered_services'] = [];
+        }
+        
+        if (!empty($validated['scope_details'])) {
+            $validated['scope_details'] = array_values(array_filter($validated['scope_details'], function($item) {
+                return !empty($item['title']);
+            }));
+        } else {
+            $validated['scope_details'] = [];
+        }
 
         $service->update($validated);
 

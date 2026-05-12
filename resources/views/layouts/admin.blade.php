@@ -123,6 +123,11 @@
                     <i data-lucide="images" class="w-5 h-5"></i>
                     <span x-show="sidebarOpen" class="ml-3">Portfolio</span>
                 </a>
+                <a href="{{ route('admin.decks.index') }}"
+                    class="flex items-center px-4 py-3 rounded-xl {{ request()->routeIs('admin.decks.*') ? 'bg-primary-500/10 text-primary-500' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-white' }} transition-colors">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    <span x-show="sidebarOpen" class="ml-3">Presentation Decks</span>
+                </a>
                 <a href="{{ route('admin.news.index') }}"
                     class="flex items-center px-4 py-3 rounded-xl {{ request()->routeIs('admin.news.*') ? 'bg-primary-500/10 text-primary-500' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-white' }} transition-colors">
                     <i data-lucide="newspaper" class="w-5 h-5"></i>
@@ -155,6 +160,11 @@
                     class="flex items-center px-4 py-3 rounded-xl {{ request()->routeIs('admin.users.*') ? 'bg-primary-500/10 text-primary-500' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-white' }} transition-colors">
                     <i data-lucide="user-cog" class="w-5 h-5"></i>
                     <span x-show="sidebarOpen" class="ml-3">User Management</span>
+                </a>
+                <a href="{{ route('admin.settings.index') }}"
+                    class="flex items-center px-4 py-3 rounded-xl {{ request()->routeIs('admin.settings.*') ? 'bg-primary-500/10 text-primary-500' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-white' }} transition-colors">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span x-show="sidebarOpen" class="ml-3">Settings</span>
                 </a>
             </nav>
 

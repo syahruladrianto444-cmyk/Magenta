@@ -17,7 +17,7 @@
 
         <div
             class="bg-white dark:bg-navy-800 rounded-2xl border border-gray-200 dark:border-navy-700 p-8 space-y-6 shadow-sm dark:shadow-none">
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Title *</label>
                     <input type="text" name="title" value="{{ old('title') }}" required
@@ -25,9 +25,16 @@
                     @error('title')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Client</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Client Name</label>
                     <input type="text" name="client" value="{{ old('client') }}"
                         class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">
+                    @error('client')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Audience Count</label>
+                    <input type="text" name="audience_count" value="{{ old('audience_count') }}" placeholder="e.g. 5000+"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">
+                    @error('audience_count')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
                 </div>
             </div>
 
@@ -43,6 +50,7 @@
                             </option>
                         @endforeach
                     </select>
+                    @error('business_unit_id')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Service</label>
@@ -55,6 +63,7 @@
                             </option>
                         @endforeach
                     </select>
+                    @error('service_id')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
                 </div>
             </div>
 
@@ -63,24 +72,96 @@
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Project Date</label>
                     <input type="date" name="project_date" value="{{ old('project_date') }}"
                         class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">
+                    @error('project_date')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Location</label>
                     <input type="text" name="location" value="{{ old('location') }}"
                         class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">
+                    @error('location')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
                 </div>
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</label>
-                <textarea name="description" rows="6"
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('description') }}</textarea>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-navy-700 pb-2">Case Study Details</h3>
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Featured Image</label>
-                <input type="file" name="featured_image" accept="image/*"
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-magenta-500 file:text-white">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Short Description</label>
+                <textarea name="description" rows="3"
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('description') }}</textarea>
+                @error('description')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Overview</label>
+                    <textarea name="overview" rows="5"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('overview') }}</textarea>
+                    @error('overview')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Goals</label>
+                    <textarea name="goals" rows="5"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('goals') }}</textarea>
+                    @error('goals')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Magenta Role</label>
+                    <textarea name="magenta_role" rows="5"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('magenta_role') }}</textarea>
+                    @error('magenta_role')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Impact</label>
+                    <textarea name="impact" rows="5"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('impact') }}</textarea>
+                    @error('impact')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Experience Highlights</label>
+                <textarea name="highlights" rows="5"
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">{{ old('highlights') }}</textarea>
+                @error('highlights')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-4 border-b border-gray-200 dark:border-navy-700 pb-2">Media & CTA</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Custom CTA Text (Optional)</label>
+                    <input type="text" name="cta_text" value="{{ old('cta_text') }}"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">
+                    @error('cta_text')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Custom CTA Link (Optional)</label>
+                    <input type="text" name="cta_link" value="{{ old('cta_link') }}"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white focus:border-magenta-500 focus:ring-1 focus:ring-magenta-500 outline-none">
+                    @error('cta_link')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Featured Image (Thumbnail)</label>
+                    <input type="file" name="featured_image" accept="image/*"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-magenta-500 file:text-white">
+                    @error('featured_image')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Hero Image (Case Study Banner)</label>
+                    <input type="file" name="hero_image" accept="image/*"
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-xl text-gray-900 dark:text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-magenta-500 file:text-white">
+                    @error('hero_image')<p class="mt-1 text-sm text-red-400">{{ $message }}</p>@enderror
+                </div>
             </div>
 
             <div class="flex items-center space-x-6">

@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\ContactController;
 |
 */
 
+
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -67,18 +68,25 @@ use App\Http\Controllers\Admin\PartnerController as AdminPartnerController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\SettingController as AdminSettingController;
+use App\Http\Controllers\Admin\PresentationDeckController as AdminPresentationDeckController;
 use App\Http\Controllers\Client\ClientDashboardController;
 use App\Http\Controllers\Client\ClientEventController;
 
 // Admin Authentication Routes (Public)
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('esco')->name('admin.')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.submit')->middleware('throttle:5,1');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // OTP Verification Routes
+    Route::get('/verify-otp', [AuthController::class, 'showOtpForm'])->name('otp.show');
+    Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('otp.verify');
+    Route::post('/resend-otp', [AuthController::class, 'resendOtp'])->name('otp.resend');
 });
 
 // Admin Protected Routes (Requires Authentication)
-Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+Route::prefix('esco')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // Services
@@ -109,6 +117,13 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 
     // User Management (Client accounts)
     Route::resource('users', AdminUserController::class)->except(['show']);
+
+    // Presentation Decks
+    Route::resource('decks', AdminPresentationDeckController::class);
+
+    // Settings
+    Route::get('settings', [AdminSettingController::class, 'index'])->name('settings.index');
+    Route::post('settings', [AdminSettingController::class, 'update'])->name('settings.update');
 });
 
 // ==============================================

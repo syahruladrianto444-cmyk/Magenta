@@ -16,6 +16,8 @@ class Service extends Model
         'icon',
         'excerpt',
         'description',
+        'offered_services',
+        'scope_details',
         'featured_image',
         'meta_title',
         'meta_description',
@@ -26,6 +28,8 @@ class Service extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'sort_order' => 'integer',
+        'offered_services' => 'array',
+        'scope_details' => 'array',
     ];
 
     /**

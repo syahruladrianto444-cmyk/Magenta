@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Layanan - MAGENTA')
+@section('title', 'Services - Magenta87 Group')
 
 @section('content')
     <section class="relative pt-32 pb-20 dark:bg-dark-950 bg-gray-50">
@@ -10,9 +10,9 @@
                     class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
                     Our Services
                 </div>
-                <h1 class="text-5xl md:text-6xl font-bold dark:text-white text-dark-900 mb-6">Layanan <span
-                        class="text-gradient">Profesional</span></h1>
-                <p class="text-xl dark:text-dark-300 text-dark-600">Solusi terintegrasi untuk kebutuhan korporasi Anda.</p>
+                <h1 class="text-5xl md:text-6xl font-bold dark:text-white text-dark-900 mb-6">Experience-Driven <span
+                        class="text-gradient">Solutions</span></h1>
+                <p class="text-xl dark:text-dark-300 text-dark-600">Comprehensive services designed to create impact, engagement, and lasting impressions.</p>
             </div>
         </div>
     </section>

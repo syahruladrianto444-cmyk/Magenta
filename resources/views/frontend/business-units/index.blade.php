@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Business Units - MAGENTA')
+@section('title', 'Our Creative Ecosystem - Magenta87 Group')
 
 @section('content')
     <section class="relative pt-32 pb-20 dark:bg-dark-950 bg-gray-50">
@@ -10,9 +10,9 @@
                     class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
                     Our Ecosystem
                 </div>
-                <h1 class="text-5xl md:text-6xl font-bold dark:text-white text-dark-900 mb-6">Business <span
-                        class="text-gradient">Units</span></h1>
-                <p class="text-xl dark:text-dark-300 text-dark-600">Empat unit bisnis terintegrasi untuk solusi menyeluruh.
+                <h1 class="text-5xl md:text-6xl font-bold dark:text-white text-dark-900 mb-6">Our Creative <span
+                        class="text-gradient">Ecosystem</span></h1>
+                <p class="text-xl dark:text-dark-300 text-dark-600">Four specialized units working together to create experiences, engagement, and spaces.
                 </p>
             </div>
         </div>
@@ -56,7 +56,7 @@
                             @endforeach
                         </div>
                         <div class="flex items-center font-semibold" style="color: {{ $unit->color ?? '#DC2626' }}">
-                            <span>Explore Unit</span>
+                            <span>Discover More</span>
                             <i data-lucide="arrow-right"
                                 class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </div>

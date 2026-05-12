@@ -67,7 +67,7 @@
             {{-- Premium Cards Grid --}}
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @php
-                    $serviceItems = [
+                    $serviceItems = $service->offered_services ?: [
                         ['icon' => 'building-2', 'title' => 'Corporate Events', 'desc' => 'Event perusahaan dengan standar profesional tinggi'],
                         ['icon' => 'presentation', 'title' => 'Meetings & Conference', 'desc' => 'Penyelenggaraan meeting dan konferensi berkelas'],
                         ['icon' => 'rocket', 'title' => 'Product Launch', 'desc' => 'Peluncuran produk yang berkesan dan impactful'],
@@ -88,14 +88,14 @@
                         {{-- Icon --}}
                         <div
                             class="relative z-10 w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-primary-500/20">
-                            <i data-lucide="{{ $item['icon'] }}" class="w-8 h-8 text-white"></i>
+                            <i data-lucide="{{ $item['icon'] ?? 'check-circle' }}" class="w-8 h-8 text-white"></i>
                         </div>
 
                         {{-- Content --}}
                         <h3
                             class="relative z-10 text-xl font-bold dark:text-white text-dark-900 mb-3 group-hover:text-primary-500 transition-colors">
                             {{ $item['title'] }}</h3>
-                        <p class="relative z-10 dark:text-dark-400 text-dark-600 leading-relaxed">{{ $item['desc'] }}</p>
+                        <p class="relative z-10 dark:text-dark-400 text-dark-600 leading-relaxed">{{ $item['desc'] ?? '' }}</p>
 
                         {{-- Arrow --}}
                         <div
@@ -121,9 +121,27 @@
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
                     <h2 class="text-4xl font-bold dark:text-white text-dark-900 mb-8">Mengapa Memilih Layanan Kami?</h2>
-                    <div class="prose prose-lg dark:prose-invert max-w-none dark:text-dark-300 text-dark-600">
+                    <div class="prose prose-lg dark:prose-invert max-w-none dark:text-dark-300 text-dark-600 mb-8">
                         {!! $service->description !!}
                     </div>
+
+                    @if(!empty($service->scope_details) && is_array($service->scope_details))
+                        <div class="grid sm:grid-cols-2 gap-4 mt-8">
+                            @foreach($service->scope_details as $index => $scope)
+                                <div class="bg-white dark:bg-dark-800 p-5 rounded-xl border border-gray-200 dark:border-dark-700 shadow-sm flex items-start space-x-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                                    <div class="w-10 h-10 rounded-full bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i data-lucide="check" class="w-5 h-5 text-primary-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 dark:text-white text-lg">{{ $scope['title'] ?? '' }}</h4>
+                                        @if(!empty($scope['desc']))
+                                            <p class="text-gray-600 dark:text-dark-400 text-sm mt-1">{{ $scope['desc'] }}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
                 <div class="space-y-6" data-aos="fade-left">
                     @php
@@ -236,18 +254,18 @@
                 <i data-lucide="phone" class="w-10 h-10 text-white"></i>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Tertarik dengan Layanan Ini?
+                {!! $globalCtas['headline'] ?? "Ready to Create Impact?" !!}
             </h2>
             <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-                Konsultasikan kebutuhan Anda dengan tim profesional kami secara gratis.
+                {{ $globalCtas['subheadline'] ?? "Let's discuss how we can bring your vision to life with strategy and creativity." }}
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="{{ route('contact') }}"
+                <a href="{{ $globalCtas['button_link'] ?? route('contact') }}"
                     class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-full hover:shadow-lg transition-all duration-300">
                     <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
-                    <span>Hubungi Kami</span>
+                    <span>{{ $globalCtas['button_text'] ?? 'Discuss Your Project' }}</span>
                 </a>
-                <a href="https://wa.me/6287715568639" target="_blank"
+                <a href="https://wa.me/{{ $globalCtas['whatsapp_general'] ?? '6281821878787' }}" target="_blank"
                     class="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                         <path
