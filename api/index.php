@@ -10,6 +10,7 @@ $vars = [
     'DB_PASSWORD' => 'QT4NOLaePhl5dVDm',
     'APP_ENV' => 'production',
     'APP_DEBUG' => 'true', // Temporarily enable debug for Vercel troubleshooting
+    'APP_KEY' => 'base64:stvkivhF2HO2mC0PKOgqKH5vfmDPwUv8Wu9kphD5Nzc=',
 ];
 
 foreach ($vars as $key => $value) {
