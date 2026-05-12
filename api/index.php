@@ -9,7 +9,7 @@ $vars = [
     'DB_USERNAME' => '4Ne3F4jtiazG79R.root',
     'DB_PASSWORD' => 'QT4NOLaePhl5dVDm',
     'APP_ENV' => 'production',
-    'APP_DEBUG' => 'false', // Disable debug for final live site
+    'APP_DEBUG' => 'true', // Temporarily enable debug for Vercel troubleshooting
 ];
 
 foreach ($vars as $key => $value) {
