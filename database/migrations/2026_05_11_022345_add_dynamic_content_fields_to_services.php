@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->json('offered_services')->nullable()->after('description');
-            $table->json('scope_details')->nullable()->after('offered_services');
+            $table->json('offered_services')->nullable();
+            $table->json('scope_details')->nullable();
         });
     }
 

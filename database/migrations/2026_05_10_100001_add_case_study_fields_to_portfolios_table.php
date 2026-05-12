@@ -11,11 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('portfolios', function (Blueprint $table) {
-            $table->text('overview')->nullable()->after('description');
-            $table->text('goals')->nullable()->after('overview');
-            $table->text('magenta_role')->nullable()->after('goals');
-            $table->text('impact')->nullable()->after('magenta_role');
-            $table->text('highlights')->nullable()->after('impact');
+            $table->text('overview')->nullable();
+            $table->text('goals')->nullable();
+            $table->text('magenta_role')->nullable();
+            $table->text('impact')->nullable();
+            $table->text('highlights')->nullable();
         });
     }
 
