@@ -464,6 +464,105 @@
             background-size: 200% 200%;
             animation: gradient-border 3s ease infinite;
         }
+
+        /* ========================================
+           HEXAGON DESIGN SYSTEM
+           (Company Profile Deck Identity)
+           ======================================== */
+
+        /* Hexagon Clip Path */
+        .hex-clip {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        /* Hexagon Photo Frame with Animated Gradient Border */
+        .hex-frame-border {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            padding: 4px;
+            background: linear-gradient(135deg, #DC2626 0%, #f87171 50%, #B91C1C 100%);
+            background-size: 200% 200%;
+            animation: gradient-border 4s ease infinite;
+        }
+
+        /* Hexagon Drop Shadow Wrapper (box-shadow clipped by clip-path) */
+        .hex-shadow {
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+        }
+
+        .dark .hex-shadow {
+            filter: drop-shadow(0 20px 50px rgba(220, 38, 38, 0.2));
+        }
+
+        /* Hexagon Decorative Outline Container */
+        .hex-deco {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .hex-deco svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Hexagon Small Solid Accent */
+        .hex-dot {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /* Hexagonal Icon Shape */
+        .hex-icon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        /* Hexagon Animations */
+        @keyframes hex-rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes hex-float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+
+            66% {
+                transform: translateY(-8px) rotate(-3deg);
+            }
+        }
+
+        .animate-hex-rotate {
+            animation: hex-rotate 60s linear infinite;
+        }
+
+        .animate-hex-rotate-reverse {
+            animation: hex-rotate 45s linear infinite reverse;
+        }
+
+        .animate-hex-float {
+            animation: hex-float 10s ease-in-out infinite;
+        }
+
+        .animate-hex-float-delayed {
+            animation: hex-float 10s ease-in-out infinite;
+            animation-delay: 4s;
+        }
+
+        .animate-hex-float-slow-alt {
+            animation: hex-float 14s ease-in-out infinite;
+        }
     </style>
 
     @stack('styles')

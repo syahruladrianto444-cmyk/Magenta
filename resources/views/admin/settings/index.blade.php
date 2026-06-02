@@ -91,7 +91,7 @@
                             <textarea name="why_choose_us[desc][]" rows="2" class="w-full px-3 py-2 bg-white dark:bg-navy-800 border border-gray-300 dark:border-navy-700 rounded-lg text-sm text-gray-900 dark:text-white">{{ $item['desc'] }}</textarea>
                         </div>
                     </div>
-                    <button type="button" onclick="this.closest('.why-item').remove()" class="mt-6 p-2 text-red-500 hover:bg-red-50 rounded-lg">
+                    <button type="button" onclick="removeWhyItem(this)" class="mt-6 p-2 text-red-500 hover:bg-red-50 rounded-lg">
                         <i data-lucide="trash-2" class="w-5 h-5"></i>
                     </button>
                 </div>
@@ -123,7 +123,7 @@
                 <textarea name="why_choose_us[desc][]" rows="2" class="w-full px-3 py-2 bg-white dark:bg-navy-800 border border-gray-300 dark:border-navy-700 rounded-lg text-sm text-gray-900 dark:text-white"></textarea>
             </div>
         </div>
-        <button type="button" onclick="this.closest('.why-item').remove()" class="mt-6 p-2 text-red-500 hover:bg-red-50 rounded-lg">
+        <button type="button" onclick="removeWhyItem(this)" class="mt-6 p-2 text-red-500 hover:bg-red-50 rounded-lg">
             <i data-lucide="trash-2" class="w-5 h-5"></i>
         </button>
     </div>
@@ -134,7 +134,16 @@ function addWhyChooseUsItem() {
     const template = document.getElementById('why-choose-us-template');
     const container = document.getElementById('why-choose-us-container');
     container.appendChild(template.content.cloneNode(true));
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+function removeWhyItem(btn) {
+    const item = btn.closest('.why-item');
+    if (item) {
+        item.remove();
+    }
 }
 </script>
 @endsection

@@ -69,6 +69,87 @@
         </div>
     </section>
 
+    {{-- Our Team Section --}}
+    <section class="py-24 dark:bg-dark-900 bg-gray-50 border-t dark:border-dark-800 border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div
+                    class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
+                    Tim Kami
+                </div>
+                <h2 class="text-4xl font-bold dark:text-white text-dark-900 mb-4">Our Team</h2>
+                <p class="text-lg dark:text-dark-300 text-dark-600 max-w-2xl mx-auto">
+                    The driving force behind Magenta87 Group's success and innovation.
+                </p>
+            </div>
+
+            {{-- Director --}}
+            <div class="flex justify-center mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center max-w-sm">
+                    <div class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-primary-500 shadow-xl relative group">
+                        <img src="{{ asset('images/foto-mas-damar.jpg') }}" alt="Wisanggeni Damar" class="w-full h-full object-cover group-hover:scale-120 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold dark:text-white text-dark-900 mb-2">Wisanggeni Damar</h3>
+                    <div class="text-primary-500 font-medium mb-4">Direktur</div>
+                    <p class="dark:text-dark-400 text-dark-600">
+                        Memimpin visi dan strategi Magenta87 Group dengan pengalaman luas dalam memajukan industri kreatif, event management, dan arsitektur di Indonesia.
+                    </p>
+                </div>
+            </div>
+
+            {{-- Managers --}}
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {{-- Manager 1 --}}
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-5 border-2 border-transparent group-hover:border-primary-400 transition-colors duration-300 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Manager+Satu&background=random&color=fff&size=256" alt="Manager Lini Bisnis 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold dark:text-white text-dark-900 mb-1">Nama Manager 1</h4>
+                    <div class="text-primary-500 text-sm font-medium mb-3">Manajer Lini Bisnis 1</div>
+                    <p class="dark:text-dark-400 text-dark-600 text-sm">
+                        Bertanggung jawab atas operasional dan strategi pengembangan layanan untuk lini bisnis pertama.
+                    </p>
+                </div>
+
+                {{-- Manager 2 --}}
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-5 border-2 border-transparent group-hover:border-primary-400 transition-colors duration-300 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Manager+Dua&background=random&color=fff&size=256" alt="Manager Lini Bisnis 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold dark:text-white text-dark-900 mb-1">Nama Manager 2</h4>
+                    <div class="text-primary-500 text-sm font-medium mb-3">Manajer Lini Bisnis 2</div>
+                    <p class="dark:text-dark-400 text-dark-600 text-sm">
+                        Mengelola eksekusi dan inovasi dengan komitmen tinggi untuk memastikan kepuasan klien.
+                    </p>
+                </div>
+
+                {{-- Manager 3 --}}
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-5 border-2 border-transparent group-hover:border-primary-400 transition-colors duration-300 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Manager+Tiga&background=random&color=fff&size=256" alt="Manager Lini Bisnis 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold dark:text-white text-dark-900 mb-1">Nama Manager 3</h4>
+                    <div class="text-primary-500 text-sm font-medium mb-3">Manajer Lini Bisnis 3</div>
+                    <p class="dark:text-dark-400 text-dark-600 text-sm">
+                        Fokus pada pengawasan kualitas dan pengiriman proyek secara tepat waktu dan efisien.
+                    </p>
+                </div>
+
+                {{-- Manager 4 --}}
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-5 border-2 border-transparent group-hover:border-primary-400 transition-colors duration-300 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Manager+Empat&background=random&color=fff&size=256" alt="Manager Lini Bisnis 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold dark:text-white text-dark-900 mb-1">Nama Manager 4</h4>
+                    <div class="text-primary-500 text-sm font-medium mb-3">Manajer Lini Bisnis 4</div>
+                    <p class="dark:text-dark-400 text-dark-600 text-sm">
+                        Mengarahkan pengembangan dan implementasi strategis untuk membawa inovasi pada lini bisnis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Stats Section --}}
     <section class="py-16 dark:bg-dark-900 bg-gray-50 border-y dark:border-dark-800 border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

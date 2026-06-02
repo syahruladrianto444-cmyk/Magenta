@@ -73,10 +73,10 @@
                     class="px-4 py-2 text-sm font-medium {{ request()->routeIs('portfolio.*') ? 'text-primary-500' : 'dark:text-white text-dark-700 hover:text-primary-500' }} transition-colors">
                     Portfolio
                 </a>
-                <a href="{{ route('news.index') }}"
+                <!-- <a href="{{ route('news.index') }}"
                     class="px-4 py-2 text-sm font-medium {{ request()->routeIs('news.*') ? 'text-primary-500' : 'dark:text-white text-dark-700 hover:text-primary-500' }} transition-colors">
                     News
-                </a>
+                </a> -->
                 <a href="{{ route('career.index') }}"
                     class="px-4 py-2 text-sm font-medium {{ request()->routeIs('career.*') ? 'text-primary-500' : 'dark:text-white text-dark-700 hover:text-primary-500' }} transition-colors">
                     Career

@@ -39,6 +39,19 @@
     <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-1/4 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl animate-float-slow"></div>
     
+    {{-- Hexagonal Decorative Elements --}}
+    <div class="absolute -left-32 bottom-1/4 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[350px] h-[400px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="absolute -right-20 top-20 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[250px] h-[290px] opacity-[0.05] dark:opacity-[0.07] text-primary-500 animate-hex-float">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="hex-dot w-6 h-7 bg-primary-500/15 left-[15%] top-[20%] animate-hex-float-delayed hidden lg:block"></div>
+    
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             {{-- Hero Content --}}
@@ -50,7 +63,7 @@
                     PT Magenta Jaya Makmur
                 </div>
                 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold dark:text-white text-dark-900 leading-tight mb-6">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold dark:text-white text-dark-900 leading-tight mb-6">
                     Building <span class="text-gradient">Experiences</span>
                     That Create Impact
                 </h1>
@@ -98,9 +111,16 @@
             
             {{-- Hero Visual - Production Image --}}
             <div class="relative hidden lg:block" data-aos="fade-left" data-aos-delay="200">
-                <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl dark:border-dark-700 border-gray-200 border">
-                    <img src="{{ asset('images/production.png') }}" alt="Event Production" class="w-full h-auto">
-                    <div class="absolute inset-0 bg-gradient-to-t dark:from-dark-950 from-white via-transparent to-transparent"></div>
+                {{-- Hexagonal Photo Frame (Company Profile Style) --}}
+                <div class="relative z-10 flex items-center justify-center">
+                    <div class="hex-shadow">
+                        <div class="hex-frame-border w-[520px] h-[585px]">
+                            <div class="hex-clip w-full h-full overflow-hidden relative">
+                                <img src="{{ asset('images/production.png') }}" alt="Event Production" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t dark:from-dark-950/60 from-white/30 via-transparent to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 {{-- Floating Notification Cards --}}
@@ -189,6 +209,17 @@
 {{-- WHAT WE SOLVE Section --}}
 <section class="py-24 dark:bg-dark-950 bg-white relative overflow-hidden">
     <div class="absolute top-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+    {{-- Hex Decoration --}}
+    <div class="absolute -right-40 bottom-0 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[400px] h-[460px] opacity-[0.03] dark:opacity-[0.05] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="absolute -left-20 top-40 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[240px] h-[280px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-float-delayed">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
             <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
@@ -205,7 +236,11 @@
 
         <div class="grid lg:grid-cols-2 gap-8">
             {{-- Challenges Column --}}
-            <div class="dark:bg-dark-800/50 bg-gray-50 rounded-3xl p-8 dark:border-dark-700 border-gray-200 border" data-aos="fade-right">
+            <div class="relative dark:bg-dark-800/50 bg-gray-50 rounded-3xl p-8 dark:border-dark-700 border-gray-200 border overflow-hidden" data-aos="fade-right">
+                {{-- Hex Edge Cut Accent --}}
+                <div class="absolute -right-12 -top-10 w-32 h-36 opacity-[0.05] dark:opacity-[0.08] text-primary-500 animate-hex-rotate pointer-events-none">
+                    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mr-4">
                         <i data-lucide="alert-triangle" class="w-6 h-6 text-red-500"></i>
@@ -233,7 +268,11 @@
             </div>
 
             {{-- Solutions Column --}}
-            <div class="dark:bg-dark-800/50 bg-gray-50 rounded-3xl p-8 border-2 border-primary-500/30" data-aos="fade-left">
+            <div class="relative dark:bg-dark-800/50 bg-gray-50 rounded-3xl p-8 border-2 border-primary-500/30 overflow-hidden" data-aos="fade-left">
+                {{-- Hex Edge Cut Accent --}}
+                <div class="absolute -left-12 -bottom-10 w-32 h-36 opacity-[0.06] dark:opacity-[0.1] text-primary-500 animate-hex-rotate-reverse pointer-events-none">
+                    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center mr-4">
                         <i data-lucide="check-circle" class="w-6 h-6 text-primary-500"></i>
@@ -266,6 +305,12 @@
 {{-- EXPERIENCE IN NUMBERS Section --}}
 <section class="py-24 dark:bg-dark-900 bg-gray-50 relative overflow-hidden">
     <div class="absolute bottom-0 right-0 w-80 h-80 bg-primary-500/5 rounded-full blur-3xl animate-float-slow"></div>
+    {{-- Hex Decoration --}}
+    <div class="absolute -left-48 top-0 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[450px] h-[520px] opacity-[0.03] dark:opacity-[0.05] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
             <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
@@ -288,8 +333,12 @@
                 ];
             @endphp
             @foreach($stats as $index => $stat)
-            <div class="group text-center dark:bg-dark-800/50 bg-white p-6 rounded-2xl dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
-                <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <div class="group relative overflow-hidden text-center dark:bg-dark-800/50 bg-white p-6 rounded-2xl dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
+                {{-- Hex Edge Cut Accent --}}
+                <div class="absolute -right-6 -bottom-6 w-20 h-24 opacity-[0.05] dark:opacity-[0.08] text-primary-500 group-hover:scale-125 transition-transform duration-500 pointer-events-none">
+                    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="w-14 h-16 bg-primary-500/10 hex-icon flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <i data-lucide="{{ $stat['icon'] }}" class="w-6 h-6 text-primary-500"></i>
                 </div>
                 <div class="text-3xl font-bold dark:text-white text-dark-900 mb-1">{{ $stat['value'] }}</div>
@@ -303,6 +352,12 @@
 {{-- WHY MAGENTA87 GROUP Section --}}
 <section class="py-24 dark:bg-dark-950 bg-white relative overflow-hidden">
     <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl animate-pulse"></div>
+    {{-- Hex Decoration --}}
+    <div class="absolute -right-32 top-10 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[350px] h-[400px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
             <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
@@ -319,7 +374,11 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($whyChooseUs as $index => $point)
-            <div class="group dark:bg-dark-800/50 bg-gray-50 rounded-2xl p-6 dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
+            <div class="group relative overflow-hidden dark:bg-dark-800/50 bg-gray-50 rounded-2xl p-6 dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
+                {{-- Hex Edge Cut Accent --}}
+                <div class="absolute -right-8 -top-8 w-24 h-28 opacity-[0.04] dark:opacity-[0.06] text-primary-500 group-hover:scale-125 transition-transform duration-500 pointer-events-none">
+                    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
                 <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     <i data-lucide="{{ $point['icon'] ?? 'star' }}" class="w-7 h-7 text-white"></i>
                 </div>
@@ -372,10 +431,19 @@
                 </a>
             </div>
             <div class="relative" data-aos="fade-left">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="{{ asset('images/INDUSTOPOLIS-31.jpg') }}" alt="Team MAGENTA" class="w-full h-[620px] object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t dark:from-dark-950/80 from-white/80 via-transparent to-transparent"></div>
+                {{-- Hexagonal Photo Frame (Company Profile Style) --}}
+                <div class="flex items-center justify-center">
+                    <div class="hex-shadow">
+                        <div class="hex-frame-border w-[480px] h-[540px]">
+                            <div class="hex-clip w-full h-full overflow-hidden relative">
+                                <img src="{{ asset('images/INDUSTOPOLIS-31.jpg') }}" alt="Team MAGENTA" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t dark:from-dark-950/60 from-white/30 via-transparent to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {{-- Hex Accent --}}
+                <div class="hex-dot w-5 h-6 bg-primary-500/15 -left-2 top-1/4 hidden lg:block"></div>
                 {{-- Stats Card with Glow --}}
                 <div class="absolute -bottom-6 -right-6 dark:bg-dark-800 bg-white rounded-2xl p-6 dark:border-dark-700 border-gray-200 border shadow-xl animate-float" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-4xl font-bold text-primary-500 mb-2">4</div>
@@ -388,7 +456,18 @@
 </section>
 
 {{-- Services Section --}}
-<section class="py-24 dark:bg-dark-900 bg-gray-50">
+<section class="py-24 dark:bg-dark-900 bg-gray-50 relative overflow-hidden">
+    {{-- Hex Decoration --}}
+    <div class="absolute -left-20 bottom-10 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[300px] h-[345px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="absolute right-0 top-1/4 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[200px] h-[230px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-float">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
             <div class="inline-flex items-center px-4 py-2 bg-primary-500/10 rounded-full text-primary-500 text-sm font-medium mb-6">
@@ -409,7 +488,11 @@
         @endphp
         <div class="grid md:grid-cols-2 {{ $lgCols }} gap-8">
             @foreach($services as $index => $service)
-            <div class="group dark:bg-dark-800 bg-white rounded-2xl p-8 dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+            <div class="group relative overflow-hidden dark:bg-dark-800 bg-white rounded-2xl p-8 dark:border-dark-700 border-gray-200 border hover:border-primary-500/50 transition-all duration-300 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                {{-- Hex Edge Cut Accent --}}
+                <div class="absolute -right-10 -bottom-10 w-32 h-36 opacity-[0.03] dark:opacity-[0.05] text-primary-500 group-hover:rotate-12 transition-transform duration-500 pointer-events-none">
+                    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
                 <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     <i data-lucide="{{ $service->icon ?? 'briefcase' }}" class="w-7 h-7 text-white"></i>
                 </div>
@@ -436,6 +519,14 @@
 <section class="py-32 dark:bg-dark-950 bg-white relative overflow-hidden">
     {{-- Background Decorative Elements --}}
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    {{-- Central Hex Decoration --}}
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[600px] h-[690px] opacity-[0.03] dark:opacity-[0.04] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="hex-dot w-4 h-5 bg-primary-500/15 left-[10%] top-[20%] animate-hex-float hidden lg:block"></div>
+    <div class="hex-dot w-3 h-3.5 bg-primary-500/10 right-[12%] bottom-[25%] animate-hex-float-delayed hidden lg:block"></div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {{-- Section Header --}}
@@ -484,6 +575,10 @@
 
             @foreach($ecosystem as $unit)
             <div class="group relative p-8 rounded-3xl dark:bg-dark-800 bg-white border border-gray-200 dark:border-dark-700 hover:border-primary-500/50 transition-all duration-500 overflow-hidden flex flex-col h-full shadow-sm hover:shadow-xl" data-aos="fade-up" data-aos-delay="{{ $unit['delay'] }}">
+                {{-- Hex Edge Cut Accent --}}
+                <div class="absolute -right-16 -top-16 w-40 h-48 opacity-[0.03] dark:opacity-[0.05] text-primary-500 group-hover:rotate-45 transition-transform duration-700 pointer-events-none">
+                    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
                 <div class="relative z-10 flex flex-col h-full">
                     <h3 class="text-2xl font-bold text-primary-500 mb-2 tracking-tighter">{{ $unit['title'] }}</h3>
                     <p class="text-sm font-semibold dark:text-white text-dark-900 mb-6 leading-tight">{{ $unit['desc'] }}</p>
@@ -573,6 +668,13 @@
         <div class="absolute inset-0 dark:bg-gradient-to-r dark:from-dark-900 dark:via-dark-900/95 dark:to-dark-900 bg-gradient-to-r from-gray-50 via-gray-50/95 to-gray-50"></div>
     </div>
     
+    {{-- Hex Decoration --}}
+    <div class="absolute -right-20 -top-10 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[350px] h-[400px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div data-aos="fade-right">
@@ -593,8 +695,12 @@
                 </div>
             </div>
             <div class="relative" data-aos="fade-left">
-                <div class="dark:bg-dark-800/80 bg-white/80 backdrop-blur-sm rounded-3xl p-8 dark:border-dark-700 border-gray-200 border shadow-lg">
-                    <div class="grid grid-cols-2 gap-4">
+                <div class="relative overflow-hidden dark:bg-dark-800/80 bg-white/80 backdrop-blur-sm rounded-3xl p-8 dark:border-dark-700 border-gray-200 border shadow-lg">
+                    {{-- Hex Edge Cut Accent --}}
+                    <div class="absolute -left-12 -bottom-12 w-32 h-36 opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-rotate-reverse pointer-events-none">
+                        <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 relative z-10">
                         @php
                             $trainingPrograms = [
                                 ['icon' => 'users', 'title' => 'Public Experience'],
@@ -623,6 +729,17 @@
     {{-- Decorative Background --}}
     <div class="absolute top-0 right-0 w-80 h-80 bg-primary-500/5 rounded-full blur-3xl animate-float-slow"></div>
     <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl animate-pulse"></div>
+    {{-- Hex Decoration --}}
+    <div class="absolute -left-32 top-10 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[320px] h-[370px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="absolute -right-20 bottom-0 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[280px] h-[320px] opacity-[0.04] dark:opacity-[0.06] text-primary-500 animate-hex-float-delayed">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {{-- Section Header --}}
@@ -684,6 +801,18 @@
 <section class="py-24 bg-gradient-primary relative overflow-hidden">
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float"></div>
     <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float-delayed"></div>
+    {{-- White Hex Decoration --}}
+    <div class="absolute -left-20 -top-20 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[380px] h-[440px] opacity-[0.06] text-white animate-hex-rotate">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="absolute -right-20 -bottom-20 hidden lg:block pointer-events-none">
+        <div class="hex-deco w-[300px] h-[345px] opacity-[0.06] text-white animate-hex-float-delayed">
+            <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="50,1 99,29 99,87 50,115 1,87 1,29" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+    </div>
+    <div class="hex-dot w-4 h-5 bg-white/15 left-[65%] top-[25%] animate-hex-float-slow-alt hidden lg:block"></div>
     
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
